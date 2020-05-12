@@ -1,0 +1,413 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" style="margin-right: 30px">
+        <a class="nav-ink" href=""><i class="fa fa-fw fa-home"></i> HOME</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" routerLink='/userinfo'><i class="fa fa-fw fa-user"></i>USER</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#"><i class="fa fa-fw fa-file"></i>TRANSACTION</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#"><i class="fa fa-book" aria-hidden="true"></i>BOOKS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#"><i class="fa fa-users" aria-hidden="true"></i>MEMEBRS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#"><i class="fa fa-archive" aria-hidden="true"></i>ARCHIVE</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#"><i class="fa fa-search" aria-hidden="true"></i>ADVANCESEARCH</a>
+      </li>
+
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" routerLink='/admin'><i class="fa fa-sign-out" aria-hidden="true"></i>LOGOUT</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <p style="float: right; margin-left: 250px;padding-top:10px;">WELCOME:LIBRARIAN</p>
+      </li>
+    </ul>
+  </div>
+</nav>
+<section>
+  <div style="background-color:tomato;margin: 10px;padding: 10px;;">
+    <i class="fa-fa-user" aria-hidden="true"></i><b>Books Table</b></div>
+  <nav class="navbar navbar-expand-lg navbar-light" style="border:2px dotted black;margin: 20px;">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#">NEW BOOKS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#">OLD BOOKS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#">LOST BOOKS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#">DAMAGED BOOKS</a>
+      </li>
+      <li class="nav-item" style="margin-right: 30px">
+        <a class="nav-ink" href="#">SUBJECT FOR REPALCEMENT</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div>
+    <button type="submit" class="btn btn-success"
+      style="border-radius: 20px;border: 10px;float: left;margin-left: 10px;" data-toggle="modal"
+      data-target="#exampleModalCenter1">
+      <i class="fa fa-plus" aria-hidden="true"></i>ADD BOOKS</button>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success"
+      style="border-radius: 20px;border: 10px;float: left;margin-left: 10px;" data-toggle="modal"
+      data-target="#exampleModalCenter">
+      <i class="fa fa-plus" aria-hidden="true"></i>ADD USER</button>
+  </div>
+<div>
+  
+    <button class="btn btn-outline-info" (click)="received()">Requests</button>
+  
+</div>
+<span *ngIf="icon"><p class="p text-center number" >1</p></span>
+  
+  <div *ngIf="norequests" style="margin-top: 150px;margin-left: 600px;">
+  <p>No requests from users</p>
+  </div>
+  <div *ngIf="isShow" class="table1 card">
+   
+      <div class="card-header"> 
+        <p class="p text-center"> Books listed in the below table were requested by the reader </p>
+      </div>
+    <table class="table card-body">
+      <thead class="thead text-center">
+        <tr>
+          <th scope="col">Acc.no</th>
+          <th scope="col">BookTitle</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">PageCount</th>
+        
+          <th scope="col">Author</th>
+  
+          <th scope="col">Select to read</th>
+    
+        </tr>
+    
+      </thead>
+      <tbody *ngFor='let list of got;index as i'>
+    <tr >
+         <td>{{list.acc}}</td>
+        <td>{{list.booktit}}</td>
+        <td>{{list.isb}}</td>
+        <td>{{list.copy}}</td>
+        <td>{{list.auth}}</td>
+        <td>
+          <input type="checkbox" class="form-control" (click)="addToCart(i)">
+        </td>
+    </tr>
+  </tbody>
+  </table>
+  <div class="card-footer">
+    
+    <button class="btn " (click)="sending()" > Accept</button>
+    <button class="btn" (click)="no()"> Dont Accept</button>
+  
+  </div>
+  </div>
+  
+  
+<div>
+  <button type="print" class="btn btn-primary" style="border-radius: 20px;border: 10px;float:right;margin-right: 10px;">
+    <i class="fa fa-print" aria-hidden="true"></i>print</button>
+</div>
+  <div>
+    <div style="border-radius: 20px;border: 10px;float:right;margin-right: 10px;">
+      <label for="search">Search</label></div>
+    <div style="border-radius: 20px;border: 10px;float:right;margin-right: 10px;">
+      <input type="text" name="search"></div>
+  </div>
+  <div>
+    <table class="table table-bordered" style="margin-top: 20px;">
+      <tr>
+        <th>ACC NO.</th>
+        <th>BOOK TITTLE</th>
+        <th>CATEGORY</th>
+        <th>AUTHOR</th>
+        <th>COPIES</th>
+        <th>BOOK PUB</th>
+        <th>PUBLISHER NAME</th>
+        <th>ISBN</th>
+        <th>COPYRIGHT YEAR</th>
+        <th>DATE ADDED</th>
+        <th>STATUS</th>
+        <th>ACTION</th>
+      </tr>
+      <tr *ngFor="let mas of manasa;index as i">
+        <td>{{mas.acc}}</td>
+        <td>{{mas.booktit}}</td>
+        <td>{{mas.categ}}</td>
+        <td>{{mas.auth}}</td>
+        <td>{{mas.copy}}</td>
+        <td>{{mas.bookpub}}</td>
+        <td>{{mas.publ}}</td>
+        <td>{{mas.isb}}</td>
+        <td>{{mas.copyrightyear}}</td>
+        <td>{{mas.dateadd}}</td>
+        <td>{{mas. stat}}</td>
+        <td><button align="center" type="button"  (click)="delete(i)"> <i class="fa fa-trash" aria-hidden="true"></i></button><br> <button align="center" type="button" (click)="update(i)"
+            data-toggle="modal" data-target="#exampleModalCenter2"><i class="fa fa-edit" aria-hidden="true"></i></button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card p-4">
+          <h2 class="h2 text-center">Add Book</h2>
+          <form action="" [formGroup]="addBook" (ngSubmit)="form" class="form-group">
+            <div class="form-group">
+              <label for="">Account Number</label>
+              <input type="text" name="acc" id="abook" class="form-control" formControlName="acc">
+              <small *ngIf="addBook.get('acc').touched && addBook.get('acc').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">BookTitle</label>
+              <input type="text" name="bookname" id="bookname" class="form-control" formControlName="booktit">
+              <small *ngIf="addBook.get('booktit').touched && addBook.get('booktit').invalid">fill
+                out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Category</label>
+              <input type="text" name="cat" id="cat" class="form-control" formControlName="categ">
+              <small *ngIf="addBook.get('categ').touched && addBook.get('categ').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Author</label>
+              <input type="text" name="lastname" id="autho" class="form-control" formControlName="auth">
+              <small *ngIf="addBook.get('auth').touched && addBook.get('auth').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Copies</label>
+              <input type="text" name="password" id="copies" class="form-control" formControlName="copy">
+              <small *ngIf="addBook.get('copy').touched && addBook.get('copy').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">BookPub</label>
+              <input type="text" name="matric no" id="bkp" class="form-control" formControlName="bookpub">
+              <small *ngIf="addBook.get('bookpub').touched && addBook.get('bookpub').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Publisher</label>
+              <input type="text" name="deptno" id="pub" class="form-control" formControlName="publ">
+              <small *ngIf="addBook.get('publ').touched && addBook.get('publ').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">isbn</label>
+              <input type="text" name="level1" id="isb" class="form-control" formControlName="isb">
+              <small *ngIf="addBook.get('isb').touched && addBook.get('isb').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Copirights</label>
+              <input type="text" name="level1" id="cp" class="form-control" formControlName="copyrightyear">
+              <small *ngIf="addBook.get('copyrightyear').touched && addBook.get('copyrightyear').invalid">fill
+                out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Date Added</label>
+              <input type="text" name="level1" id="da" class="form-control" formControlName="dateadd">
+              <small *ngIf="addBook.get('dateadd').touched && addBook.get('dateadd').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Status</label>
+              <input type="text" name="level1" id="sta" class="form-control" formControlName="stat">
+              <small *ngIf="addBook.get('stat').touched && addBook.get('stat').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-primary" style="margin-left: 20px;" (click)="add()"
+                data-dismiss="modal">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalCenter2" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card p-4">
+          <h5 class="h5 text-center">update Book</h5>
+          <form action="" [formGroup]="addBook1" class="form-group">
+            <div class="form-group">
+              <label for="">Account Number</label>
+              <input type="text" name="acno1" id="abook1" class="form-control" disabled formControlName="acc">
+              <small *ngIf="addBook1.get('acc').touched && addBook1.get('acc').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">BookTitle</label>
+              <input type="text" name="uname1" id="bktitle1" disabled class="form-control" formControlName="booktit">
+              <small *ngIf="addBook1.get('booktit').touched && addBook1.get('booktit').invalid">fill
+                out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Category</label>
+              <input type="text" name="cat1" id="cat1" disabled class="form-control" formControlName="categ">
+              <small *ngIf="addBook1.get('categ').touched && addBook1.get('categ').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Author</label>
+              <input type="text" name="lastname1" id="autho1" disabled class="form-control" formControlName="auth">
+              <small *ngIf="addBook1.get('auth').touched && addBook1.get('auth').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Copies</label>
+              <input type="text" name="password11" id="copies11" class="form-control" formControlName="copy">
+              <small *ngIf="addBook1.get('copy').touched && addBook1.get('copy').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">BookPub</label>
+              <input type="text" name="matric no1" id="bkp1" class="form-control" formControlName="bookpub">
+              <small *ngIf="addBook1.get('bookpub').touched && addBook1.get('bookpub').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Publisher</label>
+              <input type="text" name="deptno1" id="pub1" class="form-control" formControlName="publ">
+              <small *ngIf="addBook1.get('publ').touched && addBook1.get('publ').invalid">fill
+                out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">isbn</label>
+              <input type="text" name="level11" id="isb1" disabled class="form-control" formControlName="isb">
+              <small *ngIf="addBook1.get('isb').touched && addBook1.get('isb').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Copirights</label>
+              <input type="text" name="level111" id="cp1" disabled class="form-control" formControlName="copyrightyear">
+              <small *ngIf="addBook1.get('copyrightyear').touched && addBook1.get('copyrightyear').invalid">fill
+                out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Date Added</label>
+              <input type="text" name="level1111" id="da1" class="form-control" formControlName="dateadd">
+              <small *ngIf="addBook1.get('dateadd').touched && addBook1.get('dateadd').invalid">fill
+                out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Status</label>
+              <input type="text" name="level21" id="sta1" value="king" class="form-control" formControlName="stat">
+              <small *ngIf="addBook1.get('stat').touched && addBook1.get('stat').invalid">fill out
+                this
+                field</small>
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-primary" style="margin-left: 20px;" data-dismiss="modal"
+                (click)="update1()">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card p-4">
+          <h2 class="h2 text-center">ADD USER</h2>
+          <form action="" [formGroup]="killr" class="form-group">
+            <div class="form-group">
+              <label for="">User Name</label>
+              <input type="text" name="uname" id="uname" class="form-control" formControlName="username">
+              <small *ngIf="killr.get('username').touched && killr.get('username').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">First Name</label>
+              <input type="text" name="firstname" id="fname" class="form-control" formControlName="fname">
+              <small *ngIf="killr.get('fname').touched && killr.get('fname').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Last Name</label>
+              <input type="text" name="lastname" id="lname" class="form-control" formControlName="lname">
+              <small *ngIf="killr.get('lname').touched && killr.get('lname').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="text" name="password" id="pass" class="form-control" formControlName="password">
+              <small *ngIf="killr.get('password').touched && killr.get('password').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Matric no</label>
+              <input type="text" name="matric no" id="matric" class="form-control" formControlName="matric">
+              <small *ngIf="killr.get('matric').touched && killr.get('matric').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">Department</label>
+              <input type="text" name="deptno" id="dpt" class="form-control" formControlName="dept">
+              <small *ngIf="killr.get('dept').touched && killr.get('dept').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <label for="">level</label>
+              <input type="text" name="level1" id="lvl" class="form-control" formControlName="level">
+              <small *ngIf="killr.get('level').touched && killr.get('level').invalid">fill out this
+                field</small>
+            </div>
+            <div class="form-group">
+              <button type="button" (click)="adduser()" class="btn btn-primary" data-dismiss="modal"
+                style="margin-left: 20px;">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

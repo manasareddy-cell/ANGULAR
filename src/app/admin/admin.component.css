@@ -1,0 +1,40 @@
+div h3{
+    font-style: italic;
+    color:blue;
+  }
+   div a{
+    color:black;
+  }
+  body{
+    background-image: url("D:\PARALLEL PROJECT\LIBRARY\src\assets\wallpaper.jpg");
+    background-repeat:no-repeat;
+    background-size:cover ;
+  }
+  #dropdown{
+    color:black;
+  }
+  @media screen and (max-width: 500px) {
+    navbar a {
+      float: none;
+      display: block;
+    }
+  }
+   #nav{
+  background-color: rgba(255, 255, 0, 0.349);
+  }
+    footer{
+      position: fixed;
+      margin: 1px;
+      padding: 1px;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      overflow: hidden;
+      background-color:  rgba(255, 255, 0, 0.349);
+  }
+  /* .a{
+      background-image:url('');
+      background-repeat: no-repeat;
+      background-size: cover;
+  } */

@@ -1,0 +1,159 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark stick">
+  <a class="navbar-brand"><svg class="bi bi-book" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M5.214 3.072c1.599-.32 3.702-.363 5.14 1.074a.5.5 0 01.146.354v11a.5.5 0 01-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 012 15.5v-11a.5.5 0 01.276-.447L2.5 4.5l-.224-.447.002-.001.004-.002.013-.006a5.116 5.116 0 01.22-.103 12.958 12.958 0 012.7-.869zM3 4.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V4.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 003 4.82z"
+        clip-rule="evenodd" />
+      <path fill-rule="evenodd"
+        d="M14.786 3.072c-1.598-.32-3.702-.363-5.14 1.074A.5.5 0 009.5 4.5v11a.5.5 0 00.854.354c.844-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0018 15.5v-11a.5.5 0 00-.276-.447L17.5 4.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 00-.799-.34 12.96 12.96 0 00-2.073-.609zM17 4.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.386-.023-3.426.56V4.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0117 4.82z"
+        clip-rule="evenodd" />
+    </svg>LIBRARY MANAGEMENT SYSTEM</a>
+  <div class="collapse navbar-collapse" style="background-color:goldenrod;margin: 10px;padding: 10px;;">
+    <ul class="navbar-nav">
+
+
+
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/home"><svg class="bi bi-house icon" width="1em" height="1em"
+            viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z"
+              clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd" />
+          </svg>Home <span class="sr-only">(current)</span></a>
+      </li>
+
+
+      <li class="nav-item active"><a routerLink="/borrow" class="nav-link"><svg class="bi bi-person" width="1em"
+            height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M15 16s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002zM5.022 15h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C13.516 12.68 12.289 12 10 12c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002zM10 9a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z"
+              clip-rule="evenodd" />
+          </svg>User</a></li>
+
+
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"> <a routerLink="/user" class="nav-link">
+          Logout</a>
+      </li>
+    </ul>
+  </div>
+
+
+</nav>
+
+
+<div class="alert" id="text1" *ngIf="customAlert">
+  <p id="text2">
+    {{x}} Book<span *ngIf="s">s</span> added!
+  </p>
+</div>
+<nav class="navbar bg-light navbar-light" style="margin-top: 10px;">
+  <div class="row" style="margin-left: 360px;">
+
+    <p style="font-weight: 800;font-size: large;letter-spacing: 0.7px;font-family: monospace;"></p>
+  </div>
+</nav>
+<div class="total">
+
+  <div class="bklist">
+
+    <nav class="navbar navbar-expand-lg">
+
+      <ul class="navbar-nav left">
+        <li class="nav-item bl">Books List </li>
+        <li class="nav-item "><button class="btn">Advanced Search</button> </li>
+        <li class="nav-item "><button class="btn notify" (click)="receivedResponse()">Notifications <span *ngIf="icon1">
+              <p class="p text-center number">1</p>
+            </span></button> </li>
+        <li class="nav-item">
+          <button class="btn" (click)="toBorrow()" [disabled]="limit">Borrow</button></li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item icon"><span><input type="search" [(ngModel)]='search' placeholder="Search"><svg
+              class="bi bi-search" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                clip-rule="evenodd" />
+              <path fill-rule="evenodd"
+                d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                clip-rule="evenodd" />
+            </svg>
+          </span> </li>
+      </ul>
+
+    </nav>
+     <!-- <div *ngIf="noresponse" class="msg1">
+      You have no new notifications
+    </div>  -->
+    <div class="msg2" *ngIf="noresponse">
+      <!-- <div class="card" >
+        <div class="card-header">
+        <p class="p text-center">{{msg}}</p>
+      </div> -->
+      <table class="table tablex card-body">
+        <thead class="thead text-center">
+          <tr>
+            <th scope="col">Acc.no</th>
+            <th scope="col">BookTitle</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">PageCount</th>
+            <th scope="col">Author</th>
+            <th scope="col">Select to read</th>
+          </tr>
+        </thead>
+        <tbody *ngFor='let have of givenBooks'>
+          <tr>
+            <td>{{have.acc}}</td>
+            <td>{{have.booktit}}</td>
+            <td>{{have.isb}}</td>
+            <td>{{have.copy}}</td>
+            <td>{{have.auth}}</td>
+            <td><button class="btn read">Read</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- </div> -->
+    </div>
+    <table class="table" *ngIf="tableShow">
+      <thead>
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">BookTitle</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">PageCount</th>
+          <th scope="col">PublishedDate</th>
+          <th scope="col">Status</th>
+          <th scope="col">Copies</th>
+          <th scope="col">Author</th>
+          <th scope="col">Add</th>
+
+        </tr>
+
+      </thead>
+      <tbody *ngFor="let mas of bookData; index as i ">
+        <tr>
+          <td>{{mas.acc}}</td>
+          <td>{{mas.booktit}}</td>
+          <td>{{mas.isb}}</td>
+          <td>{{mas.categ}}</td>
+          <td>{{mas.bookpub}}</td>
+          <td>{{mas.stat}}</td>
+          <td>{{mas.copy}}</td>
+          <td>{{mas.auth}}</td>
+          <td>
+            <!-- <button class="btn btn-outline-warning" (click)="addToCart(i)" [disabled]="val">Add</button> -->
+
+
+            <input type="checkbox" class="form-control box" (click)="addToCart(i)" [disabled]="val">
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

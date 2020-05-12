@@ -1,0 +1,78 @@
+ <form [formGroup]="regGroup" class=" card offset-md-4 col-md-3 mt-5">
+     <div class="card-body">
+    <div class="form-group">
+      
+        <h1>REGISTRATION</h1></div>
+       
+                <div class="form-group">
+                    <label for="First-Name">First-Name:</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control"
+                        placeholder="enter your firstname" ngModel formControlName="fn" >
+                </div>
+                <div class="form-group">
+                    <label for="Last-Name">Last-Name:</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" id="lastname"
+                        placeholder="enter your last name" ngModel formControlName="ln">
+                </div>
+                <div class="form-group">
+                    <label for=" name">Username</label>
+                    <input type="text" class="form-control" name="email" id="name"
+                        placeholder="enter your email-id" ngModel formControlName="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                        placeholder=" enter the password" ngModel formControlName="pass">
+                </div>
+                <div class="form-group">
+                    <label for="cpassword">ConfirmPassword:</label>
+                    <input type="password" class="form-control" name="cpassword" id="password"
+                        placeholder=" enter the password" ngModel formControlName="confirmPass">
+                </div>
+                <!-- <div class="form-group">
+                    <label for="languages">languages:</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="language"
+                            value="Telugu">Telugu</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="language"
+                            value="Hindi">Hindi</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="language"
+                            value="English">English</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="language"
+                            value="English">Kanada</label>
+                </div>
+                <div class="form-group">
+                    <label for="dateofbirth">Date of Birth:</label>
+                     <input type="date" id="dateofbirth" name="dateofbirth">
+                </div>
+                <div class="form-group">
+                    <label for="Address" id="permanentaddress">permanent-Address:</label>
+                    <textarea class="form-control" name="permanent-address" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="GENDER">GENDER:</label>
+                    <label class="radio-inline"><input type="radio" id="male" name="gender">MALE</label>
+                    <label class="radio-inline"><input type="radio" id="female" name="gender">FEMALE</label>
+                    <label class="radio-inline"><input type="radio" id="others" name="gender">OTHERS</label>
+                </div>
+                <div class="form-group">
+                    <label for="phoneno">PhoneNumber:</label>
+                    <input type="text" class="form-control" name="number" placeholder="Enter your PhoneNumber">
+                </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember" required> I agree
+                                terms an conditions
+                            </label>
+                        </div> -->
+                        <div>
+                            <button class="btn">
+                                <button type="submit"  (click)="submit()" [disabled]= "regGroup.invalid"     class="btn btn-primary">Register</button></button>
+    
+                </div>
+                
+</div>
+    
+    </form>
+    
+    
+    

@@ -1,0 +1,46 @@
+[
+  {
+    "acc": "01",
+    "booktit": "MR.COOL",
+      "categ": "Inspiritional",
+      "auth": "MSD",
+      "copy":6,
+      "bookpub": "manasa",
+      "publ":"Sports ltd",
+     "isb":2008,
+      "copyrightyear":2019,
+      "dateadd":"14-3-2020",
+      "stat":"NEW"
+     
+  },
+  {
+    "acc": "02",
+    "booktit": "Chennai Super Kings",
+      "categ": "Bio-graphy",
+      "auth": "K.S Viswanath",
+      "copy":5,
+      "bookpub": "manasa",
+      "publ":"Chennai ltd",
+      "isb":2010,
+      "copyrightyear":2019,
+      "dateadd":"10-1-2019",
+      "stat":"NEW"
+      
+  },
+  {
+    "acc": "03",
+    "booktit": "Hound Of Baskerville",
+      "categ": "Sci-Fi",
+      "auth": "Sherlock-Holmes",
+      "copy":3,
+      "bookpub": "manasa",
+      "publ" : "London",
+      "isb":1995,
+      "copyrightyear":2008,
+      "dateadd":"26-5-2002",
+      "stat":"OLD"
+     
+  }
+  
+]
+  

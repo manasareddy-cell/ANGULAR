@@ -1,0 +1,41 @@
+nav{
+    margin-top: 10px;
+  }
+  h5{
+    margin-top: 5px;
+  
+  }
+  section a:hover{    
+      background-color: rgba(27, 80, 129, 0.432);
+      border-radius: 50px 50px;
+    }
+    section{
+      margin:30px;
+    }
+    section [class="nav-link active"]{
+      background-color: rgba(24, 131, 231, 0.589);
+      border-radius: 50px 50px;
+    }
+    section table{
+        float:right;
+    }
+    section form{
+        float:left;
+        margin-left: 30px;
+    }
+    section th,section td{
+        padding:6px;
+    }
+    table,th,td{
+      border:1px black solid;
+      border-collapse: collapse;
+      text-align:center;
+      padding:3px;
+    }
+    [class="form-control"]{
+       background-color: cornsilk;
+     }
+     label{
+         font-weight: bold;
+     }
+     

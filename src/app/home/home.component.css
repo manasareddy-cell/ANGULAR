@@ -1,0 +1,44 @@
+div h3{
+    font-style: italic;
+    color:ivory;
+  }
+   div a{
+    color:black;
+  }
+  body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGwehgdLtQUYgx2UdmgAuYSkQlxqb4v9aFhlDRX_7bNcYkk8Gt&usqp=CAU");
+    background-repeat:no-repeat;
+    background-size:cover ;
+  } 
+  #dropdown{
+    color:black;
+  }
+  @media screen and (max-width: 500px) {
+    navbar a {
+      float: none;
+      display: block;
+    }
+  }
+   #nav{
+  background-color: rgba(255, 251, 0, 0.349);
+  }
+    footer{
+      position: fixed;
+      margin: 1px;
+      padding: 1px;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      overflow: hidden;
+      background-color:  rgba(0, 195, 255, 0.349);
+  }
+  .card
+  {
+      background-color: rgba(200, 200, 200, 0.1234);
+  }
+   /* .a{
+      background-image:url('D:\PARALLEL PROJECT\LIBRARY\src\assets\wallpaper.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+  }     */
